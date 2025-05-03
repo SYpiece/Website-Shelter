@@ -1,0 +1,50 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.container {
+    display: grid;
+    gap: 40px;
+    padding: 20px;
+    justify-content: center;
+
+    /* border: solid 1px;
+    border-radius: 10px; */
+
+    background-color: honeydew;
+}
+
+.hidden {
+    display: none;
+}
+
+.container > * {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+
+    min-width: 100px;
+    max-width: 300px;
+
+    padding: 5px;
+    border: solid 1px;
+    border-radius: 5px;
+
+    background-color: rgb(224, 255, 255);
+    scale: 1;
+    transition: all .5s;
+}
+
+.container > *:hover {
+    background-color: rgb(32, 255, 255);
+    scale: 1.2;
+    cursor: pointer;
+}
+
+img {
+    height: 32px;
+    width: 32px;
+}
