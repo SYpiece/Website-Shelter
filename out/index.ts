@@ -1,67 +1,73 @@
+function start() {
+    document.getElementById("menu-container")!.classList.add("start-animation")
+}
+
+let kinds = ["game", "tool", "resource"]
+let items: { [key: string]: Element[] } = {}
+let itemContainer: Element
+
 window.onload = () => {
-    let start = document.getElementById("start")!
-    let startElement = document.getElementsByName("start")[0]
-    let game = document.getElementById("game")!
-    let gameElement = document.getElementsByName("game")[0]
-    let tool = document.getElementById("tool")!
-    let toolElement = document.getElementsByName("tool")[0]
-    let resource = document.getElementById("resource")!
-    let resourceElement = document.getElementsByName("resource")[0]
-
-    start.onclick = () => {
-        if (hidden(startElement)) {
-            show(startElement)
-        } else {    
-            hide(startElement)
-            hide(gameElement)
-            hide(toolElement)
-            hide(resourceElement)
-        }
-    };
-    
-    game.onclick = () => {
-        if (hidden(gameElement)) {
-            hide(toolElement)
-            hide(resourceElement)
-            show(gameElement)
-        } else {    
-            hide(gameElement)
-        }
-    };
-    
-    tool.onclick = () => {
-        if (hidden(toolElement)) {
-            hide(gameElement)
-            hide(resourceElement)
-            show(toolElement)
-        } else {    
-            hide(toolElement)
-        }
+    itemContainer = document.getElementById("item-container")!
+    for (let kind of kinds) {
+        items[kind] = []
     }
-    
-    resource.onclick = () => {
-        if (hidden(resourceElement)) {
-            hide(gameElement)
-            hide(toolElement)
-            show(resourceElement)
-        } else {    
-            hide(resourceElement)
+
+    for (var i = 0; i < itemContainer.children.length; i++) {
+        let child = itemContainer.children[i]
+        if (child.classList.contains("item")) {
+            for (let kind of kinds) {
+                if (child.classList.contains(kind)) {
+                    items[kind].push(child)
+                    itemContainer.removeChild(child)
+                    i--
+                    break
+                }
+            }
         }
     }
 }
 
-function hidden(element: HTMLElement): boolean {
-    return element.classList.contains("hidden")
+let animationCount = 0;
+function kind(kind: string) {
+    if (animationCount > 0) {
+        return
+    }
+    let exsists: Element[] = []
+    let length = itemContainer.children.length
+    for (var i = length - 1; i >= 0; i--) {
+        let element = itemContainer.children[i]
+        if (element.classList.contains("item")) {
+            if (element.classList.contains(kind)) {
+                exsists.push(element)
+            } else {
+                animationCount++
+                setTimeout(() => {
+                    element.classList.add("element-remove")
+                    element.addEventListener("animationend", () => {
+                        itemContainer.removeChild(element)
+                        element.classList.remove("element-remove")
+                        animationCount--
+                    }, {once: true})
+                }, (length - i - 1) * 100)
+            }
+        }
+    }
+    for (var i = 0; i < items[kind].length; i++) {
+        let element = items[kind][i];
+        if (!exsists.includes(element)) {
+            animationCount++
+            setTimeout(() => {
+                element.classList.add("element-add")
+                itemContainer.appendChild(element)
+                element.addEventListener("animationend", () => {
+                    element.classList.remove("element-add")
+                    animationCount--
+                }, {once: true})
+            }, (i + length + 1) * 100)
+        }
+    }
 }
 
-function hide(element: HTMLElement) {
-    element.classList.add("hidden")
-}
-
-function show(element: HTMLElement) {
-    element.classList.remove("hidden")
-}
-
-function link(link: string) {
-    window.open(link, "_blank");
+function link(url: string) {
+    window.open(url, "_blank")
 }

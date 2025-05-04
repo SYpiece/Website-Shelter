@@ -9,14 +9,6 @@
                 "-rf",
                 "out",
             ],
-            "presentation": {
-                "echo": false,
-                "reveal": "silent",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": false
-            }
         },
         {
             "label": "create",
@@ -26,14 +18,6 @@
                 "-p",
                 "out",
             ],
-            "presentation": {
-                "echo": false,
-                "reveal": "silent",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": false
-            }
         },
         {
             "label": "copy",
@@ -45,27 +29,11 @@
                 "src/*",
                 "out/",
             ],
-            "presentation": {
-                "echo": false,
-                "reveal": "silent",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": false
-            }
         },
         {
             "label": "compile",
             "type": "shell",
             "command": "tsc",
-            "presentation": {
-                "echo": false,
-                "reveal": "silent",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": false
-            }
         },
         {
             "label": "build",
@@ -76,14 +44,6 @@
                 "compile"
             ],
             "dependsOrder": "sequence",
-            "presentation": {
-                "echo": false,
-                "reveal": "silent",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": false
-            }
         }
     ]
 }
