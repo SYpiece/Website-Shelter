@@ -1,0 +1,249 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#start-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #000;
+}
+
+#start-button {
+    position: relative;
+    transform: translateY(-40px);
+    height: 80px;
+    width: 200px;
+
+    transition: all .3s ease-in-out;
+    background-color: #fff;
+    box-shadow: 10px 10px 5px #888;
+    border: teal double 10px;
+    border-radius: 30px;
+
+    text-align: center;
+    font-size: xx-large;
+    user-select: none;
+    color: teal;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+#start-button:hover {
+    transform: translate(-5px, -45px);
+    box-shadow: 15px 15px 20px #888;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+#start-button:active {
+    transition: all .1s ease-in-out;
+    transform: translate(5px, -35px);
+    box-shadow: 2px 2px #888;
+    background-color: teal;
+    color: rgb(0, 84, 84);
+}
+
+#menu-container {
+    position: absolute;
+    visibility: hidden;
+
+    height: calc(100% - 40px);
+    width: calc(100% - 40px);
+    padding: 20px;
+    gap: 40px;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.start-animation {
+    animation: start .5s ease-in-out both;
+}
+
+@keyframes start {
+    from {
+        opacity: 0;
+        transform: scale(0);
+        background-color: teal;
+    }
+    to {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+        background-color: rgb(150, 200, 200);
+    }
+}
+
+#kind-container {
+    width: 15%;
+    min-width: 200px;
+
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.kind {
+    position: relative;
+    height: 15%;
+    min-height: 30px;
+    max-height: 60px;
+    width: 60%;
+
+    font-size: medium;
+    user-select: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+
+    border: 3px solid teal;
+    border-radius: 5px;
+    background-color: white;
+
+    text-align: center;
+    color: teal;
+
+    transform: scale(1);
+    transition: all 0.2s ease-in-out;
+}
+
+.kind:hover {
+    transform: scale(1.1);
+
+    background-color: teal;
+    color: rgb(0, 84, 84);
+
+    cursor: pointer;
+}
+
+#kind-game {
+    left: 10%;
+}
+
+#kind-tool {
+    left: 20%;
+}
+
+#kind-resource {
+    left: 30%;
+}
+
+#kind, #kind-item {
+    height: 10%;
+    max-height: 40px;
+
+    background-color: white;
+    border: 10px double wheat;
+    border-radius: 10px;
+
+    color: rgb(131, 117, 91);
+    font-size: x-large;
+    user-select: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+#item-container {
+    width: 25%;
+    min-width: 350px;
+
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+
+    border: 3px solid teal;
+    border-radius: 5px;
+    background-color: white;
+
+    text-align: center;
+    color: teal;
+
+    position: relative;
+    transform: scale(1);
+    transition: all 0.2s ease-in-out;
+}
+
+.item > img {
+    height: 32px;
+    width: 32px;
+}
+
+.item > a {
+    text-decoration: none;
+}
+
+.item > a:visited, .item > a:link {
+    color: red;
+}
+
+.item:hover {
+    transform: scale(1.1);
+
+    background-color: teal;
+    color: rgb(0, 84, 84);
+
+    cursor: pointer;
+}
+
+.element-add {
+    visibility: visible;
+    animation: element-add .3s ease-out both;
+}
+
+@keyframes element-add {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.element-remove {
+    visibility: visible;
+    animation: element-remove .3s ease-in both;
+}
+
+@keyframes element-remove {
+    from {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}

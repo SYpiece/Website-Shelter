@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <title></title>
+        <link rel="stylesheet" href="index.css"></link>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <div id="start-container">
+            <div id="start-button" onclick="start()">
+                <p>Start</p>
+            </div>
+            <div id="start-animation"></div>
+        </div>
+        <div id="menu-container">
+            <div id="kind-container">
+                <div id="kind">
+                    <p>Kind</p>
+                </div>
+                <div id="kind-game" class="kind" onclick="kind('game')">
+                    <p>Game</p>
+                </div>
+                <div id="kind-tool" class="kind" onclick="kind('tool')">
+                    <p>Tool</p>
+                </div>
+                <div id="kind-resource" class="kind" onclick="kind('resource')">
+                    <p>Resource</p>
+                </div>
+            </div>
+            <div id="item-container">
+                <div id="kind-item">
+                    <p>Item</p>
+                </div>
+                <div class="game item" onclick="link('https://generals.io')">
+                    <img src="res/img/generals.png">
+                    <a href="https://generals.io" target="_blank">generals.io</a>
+                    <span>见证狡诈和智慧，正面突进与绕后偷袭都是常态。</span>
+                </div>
+                <div class="game item" onclick="link('https://kiomet.com')">
+                    <img src="res/img/kiomet.png">
+                    <a href="https://kiomet.com" target="_blank">kiomet.com</a>
+                    <span>与全世界的人一起来一场战争盛宴，广结挚友，或是争霸四方。</span>
+                </div>
+                <div class="game item" onclick="link('https://www.conq.io')">
+                    <img src="res/img/conq.png">
+                    <a href="https://www.conq.io" target="_blank">www.conq.io</a>
+                    <span>在六边形方格组成的小岛上，征服不同阵营的军队和粮仓。</span>
+                </div>
+                <div class="game item">
+                    <span>game</span>
+                </div>
+                <div class="tool item" onclick="link('res/exe/jiyutrainer.exe')">
+                    <img src="res/img/jiyutrainer.png">
+                    <a>极域教练</a>
+                    <span>一款专门针对极域电子教室的黑客软件</span>
+                </div>
+                <div class="tool item">
+                    <span>tool</span>
+                </div>
+                <div class="resource item">
+                    <span>resource</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
